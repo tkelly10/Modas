@@ -20,8 +20,10 @@
     <Folder Include="wwwroot\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\js\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Home.cshtml" />
+    <Content Remove="wwwroot\css\bootstrap-grid.css.map" />
   </ItemGroup>
 </Project>
