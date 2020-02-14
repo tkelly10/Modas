@@ -18,6 +18,16 @@ $(function () {
         });
     }
 
+    $('.flag').on('click', function () {
+        if ($(this).data('checked')) {
+            $(this).data('checked', false);
+            $(this).removeClass('fas').addClass('far');
+        } else {
+            $(this).data('checked', true);
+            $(this).removeClass('far').addClass('fas');
+        }
+    });
+
     // event listeners for first/next/prev/last buttons
     $('#next, #prev, #first, #last').on('click', function () {
         getEvents($(this).data('page'));
@@ -31,7 +41,10 @@ $(function () {
             html += "<td class=\"text-center\">";
             html += "<i data-id=\"" + e[i].id + "\" data-checked=\"" + e[i].flag + "\" class=\"" + f + " fa-flag fa-lg flag\" />";
             html += "</td>";
-            html += "<td>" + get_long_date(e[i].ts) + "</td>";
+            html += "<td>";
+            html += "<div class=\"d-none d-md-block\">" + get_long_date(e[i].ts) + "</div >";
+            html += "<div class=\"d-md-none\">" + get_short_date(e[i].ts) + "</div >";
+            html += "</td>";
             html += "<td>" + get_time(e[i].ts) + "</td>";
             html += "<td>" + e[i].loc + "</td>";
             html += "</tr> ";
